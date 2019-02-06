@@ -119,51 +119,7 @@ extension ListViewController: DataViewModelDelegate {
         if viewModel.currentPage <= MAX_PAGE {
             viewModel.fetchData()
         } else {
-            print("*** delete records")
-            DispatchQueue(label: "background").async { [weak self] in
-                autoreleasepool {
-                    do {
-                        let realm = try Realm()
-                        realm.beginWrite()
-                        realm.deleteAll()
-                        let maxIteration = self?.viewModel.currentCount ?? 0
-                        for i in 0..<maxIteration {
-                            if let contact = self?.viewModel.contact(at: i) {
-                                let contactDB = ContactDB()
-                                contactDB.id = contact.id
-                                contactDB.name = contact.name
-                                contactDB.phone = contact.phone
-                                contactDB.phoneDigits = contact.phone.digits
-                                contactDB.height = contact.height
-                                contactDB.biography = contact.biography
-                                contactDB.temperament = contact.temperament
-                                contactDB.educationPeriod = EducationDB()
-                                contactDB.educationPeriod.start = contact.educationPeriod.start
-                                contactDB.educationPeriod.end = contact.educationPeriod.end
-                                realm.add(contactDB)
-                            }
-                        }
-                        try realm.commitWrite()
-                    } catch {
-                        self?.fatalRealmDataError(error)
-                    }
-                    DispatchQueue.main.async { [weak self] in
-                        if self?.contacts == nil {
-                            do {
-                                let realm = try Realm()
-                                self?.contacts = realm.objects(ContactDB.self)
-                            } catch {
-                                self?.fatalRealmDataError(error)
-                            }
-                        }
-                        print("*** add records")
-                        self?.tableView.reloadData()
-                        self?.tableView.isHidden = false
-                        self?.indicatorView.stopAnimating()
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    }
-                }
-            }
+            updateData()
         }
     }
     
@@ -234,6 +190,54 @@ private extension ListViewController {
             searchResults = realm.objects(ContactDB.self).filter(predicate)
         } catch {
             fatalRealmDataError(error)
+        }
+    }
+    
+    func updateData() {
+        print("*** delete records")
+        DispatchQueue(label: "background").async { [weak self] in
+            autoreleasepool {
+                do {
+                    let realm = try Realm()
+                    realm.beginWrite()
+                    realm.deleteAll()
+                    let maxIteration = self?.viewModel.currentCount ?? 0
+                    for i in 0..<maxIteration {
+                        if let contact = self?.viewModel.contact(at: i) {
+                            let contactDB = ContactDB()
+                            contactDB.id = contact.id
+                            contactDB.name = contact.name
+                            contactDB.phone = contact.phone
+                            contactDB.phoneDigits = contact.phone.digits
+                            contactDB.height = contact.height
+                            contactDB.biography = contact.biography
+                            contactDB.temperament = contact.temperament
+                            contactDB.educationPeriod = EducationDB()
+                            contactDB.educationPeriod.start = contact.educationPeriod.start
+                            contactDB.educationPeriod.end = contact.educationPeriod.end
+                            realm.add(contactDB)
+                        }
+                    }
+                    try realm.commitWrite()
+                } catch {
+                    self?.fatalRealmDataError(error)
+                }
+                DispatchQueue.main.async { [weak self] in
+                    if self?.contacts == nil {
+                        do {
+                            let realm = try Realm()
+                            self?.contacts = realm.objects(ContactDB.self)
+                        } catch {
+                            self?.fatalRealmDataError(error)
+                        }
+                    }
+                    print("*** add records")
+                    self?.tableView.reloadData()
+                    self?.tableView.isHidden = false
+                    self?.indicatorView.stopAnimating()
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
+            }
         }
     }
     
