@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D9D5E7D220EF353000B1CD0 /* TestTaskContourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9D5E7C220EF353000B1CD0 /* TestTaskContourTests.swift */; };
 		7DABC704220960F300555F75 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC703220960F300555F75 /* String+Extensions.swift */; };
 		7DDC11BD2205CF7A00D1B018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDC11BC2205CF7A00D1B018 /* AppDelegate.swift */; };
 		7DDC11BF2205CF7A00D1B018 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDC11BE2205CF7A00D1B018 /* ListViewController.swift */; };
@@ -24,9 +25,22 @@
 		D5AC69B2F83037CB9AADF319 /* Pods_TestTaskContour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB6C6B6B71AA574840B0E1D /* Pods_TestTaskContour.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7D9D5E7F220EF353000B1CD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DDC11B12205CF7A00D1B018 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DDC11B82205CF7A00D1B018;
+			remoteInfo = TestTaskContour;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		172839E6E2C57DE3ED4C98A3 /* Pods-TestTaskContour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTaskContour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestTaskContour/Pods-TestTaskContour.debug.xcconfig"; sourceTree = "<group>"; };
 		284065711071C94527480D32 /* Pods-TestTaskContour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTaskContour.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestTaskContour/Pods-TestTaskContour.release.xcconfig"; sourceTree = "<group>"; };
+		7D9D5E7A220EF353000B1CD0 /* TestTaskContourTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskContourTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D9D5E7C220EF353000B1CD0 /* TestTaskContourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskContourTests.swift; sourceTree = "<group>"; };
+		7D9D5E7E220EF353000B1CD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DABC703220960F300555F75 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		7DDC11B92205CF7A00D1B018 /* TestTaskContour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskContour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DDC11BC2205CF7A00D1B018 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +61,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7D9D5E77220EF353000B1CD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DDC11B62205CF7A00D1B018 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,6 +96,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7D9D5E7B220EF353000B1CD0 /* TestTaskContourTests */ = {
+			isa = PBXGroup;
+			children = (
+				7D9D5E7C220EF353000B1CD0 /* TestTaskContourTests.swift */,
+				7D9D5E7E220EF353000B1CD0 /* Info.plist */,
+			);
+			path = TestTaskContourTests;
+			sourceTree = "<group>";
+		};
 		7DABC702220960B900555F75 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				7DDC11BB2205CF7A00D1B018 /* TestTaskContour */,
+				7D9D5E7B220EF353000B1CD0 /* TestTaskContourTests */,
 				7DDC11BA2205CF7A00D1B018 /* Products */,
 				2C7BFCC9F425A5D47A05B6D1 /* Pods */,
 				227CD6C0C77E0491F08F22A8 /* Frameworks */,
@@ -97,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				7DDC11B92205CF7A00D1B018 /* TestTaskContour.app */,
+				7D9D5E7A220EF353000B1CD0 /* TestTaskContourTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +214,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7D9D5E79220EF353000B1CD0 /* TestTaskContourTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D9D5E83220EF353000B1CD0 /* Build configuration list for PBXNativeTarget "TestTaskContourTests" */;
+			buildPhases = (
+				7D9D5E76220EF353000B1CD0 /* Sources */,
+				7D9D5E77220EF353000B1CD0 /* Frameworks */,
+				7D9D5E78220EF353000B1CD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D9D5E80220EF353000B1CD0 /* PBXTargetDependency */,
+			);
+			name = TestTaskContourTests;
+			productName = TestTaskContourTests;
+			productReference = 7D9D5E7A220EF353000B1CD0 /* TestTaskContourTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7DDC11B82205CF7A00D1B018 /* TestTaskContour */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DDC11CB2205CF7C00D1B018 /* Build configuration list for PBXNativeTarget "TestTaskContour" */;
@@ -211,6 +261,10 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = varton;
 				TargetAttributes = {
+					7D9D5E79220EF353000B1CD0 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 7DDC11B82205CF7A00D1B018;
+					};
 					7DDC11B82205CF7A00D1B018 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -230,11 +284,19 @@
 			projectRoot = "";
 			targets = (
 				7DDC11B82205CF7A00D1B018 /* TestTaskContour */,
+				7D9D5E79220EF353000B1CD0 /* TestTaskContourTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7D9D5E78220EF353000B1CD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DDC11B72205CF7A00D1B018 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +351,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7D9D5E76220EF353000B1CD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D9D5E7D220EF353000B1CD0 /* TestTaskContourTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DDC11B52205CF7A00D1B018 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,6 +378,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7D9D5E80220EF353000B1CD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7DDC11B82205CF7A00D1B018 /* TestTaskContour */;
+			targetProxy = 7D9D5E7F220EF353000B1CD0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7DDC11C02205CF7A00D1B018 /* Main.storyboard */ = {
@@ -329,6 +407,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7D9D5E81220EF353000B1CD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87AVY78XJ5;
+				INFOPLIST_FILE = TestTaskContourTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.varton.TestTaskContourTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestTaskContour.app/TestTaskContour";
+			};
+			name = Debug;
+		};
+		7D9D5E82220EF353000B1CD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 87AVY78XJ5;
+				INFOPLIST_FILE = TestTaskContourTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.varton.TestTaskContourTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestTaskContour.app/TestTaskContour";
+			};
+			name = Release;
+		};
 		7DDC11C92205CF7C00D1B018 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -486,6 +606,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7D9D5E83220EF353000B1CD0 /* Build configuration list for PBXNativeTarget "TestTaskContourTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D9D5E81220EF353000B1CD0 /* Debug */,
+				7D9D5E82220EF353000B1CD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7DDC11B42205CF7A00D1B018 /* Build configuration list for PBXProject "TestTaskContour" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
