@@ -32,30 +32,12 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        indicatorView.startAnimating()
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
-        timer = Timer.scheduledTimer(timeInterval: 61, target: self, selector: #selector(refreshData), userInfo: nil, repeats: true)
+        setup()
         setupRefreshControl()
         setupSearchController()
-        
-        do {
-            let realm = try Realm()
-            contacts = realm.objects(ContactDB.self)
-        } catch {
-            fatalRealmDataError(error)
-        }
-        if contacts.count > 0 {
-            tableView.isHidden = false
-            indicatorView.stopAnimating()
-        } else {
-            contacts = nil
-        }
-        
-        errorView.layer.cornerRadius = 6
-        errorView.layer.masksToBounds = true
-        
-        viewModel = DataViewModel(delegate: self)        
+        setupData()        
+
+        viewModel = DataViewModel(delegate: self)
         viewModel.fetchData()
     }
     
@@ -71,7 +53,7 @@ class ListViewController: UIViewController {
         super.viewWillDisappear(animated)
         title = ""
         if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationBar.prefersLargeTitles = false
         }
     }
     
@@ -146,6 +128,28 @@ extension ListViewController: UISearchResultsUpdating {
 
 
 private extension ListViewController {
+    func setup() {
+        indicatorView.startAnimating()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        timer = Timer.scheduledTimer(timeInterval: 61, target: self, selector: #selector(refreshData), userInfo: nil, repeats: true)
+        errorView.layer.cornerRadius = 6
+    }
+    
+    func setupData() {
+        do {
+            let realm = try Realm()
+            contacts = realm.objects(ContactDB.self)
+        } catch {
+            fatalRealmDataError(error)
+        }
+        if contacts.count > 0 {
+            tableView.isHidden = false
+            indicatorView.stopAnimating()
+        } else {
+            contacts = nil
+        }
+    }
+    
     func setupRefreshControl() {
         tableView.refreshControl = UIRefreshControl()
         refreshControl = tableView.refreshControl!
@@ -174,7 +178,6 @@ private extension ListViewController {
     }
     
     @objc func refreshData() {
-        refreshControl.endRefreshing()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         viewModel.fetchData()
     }
@@ -235,6 +238,7 @@ private extension ListViewController {
                     self?.tableView.reloadData()
                     self?.tableView.isHidden = false
                     self?.indicatorView.stopAnimating()
+                    self?.refreshControl.endRefreshing()
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
             }

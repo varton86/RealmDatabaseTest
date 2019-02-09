@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MapKit
 
 class DetailViewController: UITableViewController {
     private let temperamentCellNumber = 2

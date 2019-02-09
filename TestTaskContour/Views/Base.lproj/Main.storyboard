@@ -80,7 +80,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="9MD-bG-dXE"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFg-J1-6oU">
+                            <view hidden="YES" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFg-J1-6oU">
                                 <rect key="frame" x="15" y="597" width="345" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VaP-Bv-Z1D">
