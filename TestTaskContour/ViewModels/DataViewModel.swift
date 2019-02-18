@@ -49,10 +49,11 @@ final class DataViewModel {
             contacts = []
         }
 
-        client.fetchData(with: page) { result in
+        client.fetchData(with: page) { [weak self] result in
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
+                    guard let `self` = self else { return }
                     self.page = 1
                     self.contacts = []
                     self.isFetchInProgress = false
@@ -60,6 +61,7 @@ final class DataViewModel {
                 }
             case .success(let response):
                 DispatchQueue.main.async {
+                    guard let `self` = self else { return }
                     self.page += 1
                     self.contacts.append(contentsOf: response)
                     print("*** records =", self.contacts.count)

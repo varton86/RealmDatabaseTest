@@ -225,20 +225,21 @@ private extension ListViewController {
                 } catch {
                     self?.fatalRealmDataError(error)
                 }
-                DispatchQueue.main.async { [weak self] in
-                    if self?.contacts == nil {
+                DispatchQueue.main.async {
+                    guard let `self` = self else { return }
+                    if self.contacts == nil {
                         do {
                             let realm = try Realm()
-                            self?.contacts = realm.objects(ContactDB.self)
+                            self.contacts = realm.objects(ContactDB.self)
                         } catch {
-                            self?.fatalRealmDataError(error)
+                            self.fatalRealmDataError(error)
                         }
                     }
                     print("*** add records")
-                    self?.tableView.reloadData()
-                    self?.tableView.isHidden = false
-                    self?.indicatorView.stopAnimating()
-                    self?.refreshControl.endRefreshing()
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                    self.indicatorView.stopAnimating()
+                    self.refreshControl.endRefreshing()
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
             }
